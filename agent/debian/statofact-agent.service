@@ -1,0 +1,11 @@
+[Unit]
+Description=statofact agent (meldet Systemdaten an Statofact)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/statofact-agent.conf
+# Exit-Code 1 = Bedingung nicht erfüllt: Dienst wird still übersprungen, bis ein Token gesetzt ist.
+ExecCondition=/bin/grep -qE '^STATOFACT_TOKEN=.+' /etc/statofact-agent.conf
+ExecStart=/usr/bin/python3 /usr/bin/statofact-agent

@@ -1,0 +1,10 @@
+[Unit]
+Description=statofact agent regelmäßig ausführen
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=15min
+RandomizedDelaySec=30
+
+[Install]
+WantedBy=timers.target

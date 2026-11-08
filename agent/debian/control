@@ -1,0 +1,14 @@
+Package: statofact-agent
+Version: @VERSION@
+Section: admin
+Priority: optional
+Architecture: all
+Depends: python3, systemd, iproute2, dpkg
+Installed-Size: @SIZE@
+Maintainer: statofact <root@localhost>
+Description: Statofact CMDB agent
+ Reads hardware, network, listening services, and installed Debian package
+ data (including versions and dependencies) and reports it via HTTP.
+ Runs periodically through a systemd timer.
+ Supports active reporting and passive collection over SSH.
+ Configure /etc/statofact-agent.conf after installation.

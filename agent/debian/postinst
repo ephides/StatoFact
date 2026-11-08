@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+if [ "$1" = "configure" ]; then
+    chmod 0600 /etc/statofact-agent.conf
+    if [ -d /run/systemd/system ]; then
+        systemctl daemon-reload || true
+        systemctl enable statofact-agent.timer >/dev/null 2>&1 || true
+        systemctl restart statofact-agent.timer || true
+        systemctl start statofact-agent.service --no-block || true
+    fi
+fi
+exit 0

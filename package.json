@@ -1,0 +1,29 @@
+{
+  "name": "statofact",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:setup": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --env-file-if-exists=.env.local scripts/setup-db.mjs",
+    "db:migrate-software": "node --env-file-if-exists=.env.local scripts/migrate-software.mjs"
+  },
+  "dependencies": {
+    "@iconify-icons/lucide": "^2.0.28",
+    "@iconify/react": "^6.0.4",
+    "next": "16.4.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.5",
+    "typescript": "^5"
+  }
+}
